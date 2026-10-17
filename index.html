@@ -1,244 +1,346 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1020">
-  <meta name="description" content="KitaTopUpin — katalog informasi game, voucher digital, dan aplikasi hiburan. Ketersediaan produk melalui mitra sedang disiapkan.">
-  <title>KitaTopUpin — Katalog Game & Voucher Digital</title>
-  <style>
-    :root{color-scheme:dark;--bg:#090d19;--panel:#11182b;--panel2:#171f36;--line:#293451;--text:#f4f6ff;--muted:#aab4d0;--purple:#8268ff;--cyan:#54d8ef;--green:#35d39a}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(ellipse at 15% 0%,#20204c 0,transparent 38%),radial-gradient(ellipse at 100% 20%,#102e45 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
-    a{color:inherit}
-    .container{width:min(1160px,calc(100% - 32px));margin-inline:auto}
-    header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(9,13,25,.65);backdrop-filter:blur(14px)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-size:1.16rem;font-weight:850;letter-spacing:-.03em}
-    .brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--purple),var(--cyan));color:#08101f;font-size:1.25rem;box-shadow:0 8px 28px #6551d944}
-    .brand span em{font-style:normal;color:var(--cyan)}
-    .nav-links{display:flex;gap:22px;align-items:center;color:var(--muted);font-size:.93rem}
-    .nav-links a{text-decoration:none}.nav-links a:hover{color:var(--text)}
-    .hero{padding:64px 0 38px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:35px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #4a467a;background:#211d43;color:#c9c2ff;border-radius:999px;padding:7px 12px;font-size:.78rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase}
-    h1{font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.04;letter-spacing:-.055em;margin:18px 0}
-    .gradient{background:linear-gradient(90deg,#a89aff,#65e5f3);background-clip:text;-webkit-background-clip:text;color:transparent}
-    .hero p{max-width:660px;color:var(--muted);font-size:1.05rem;margin:0 0 24px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 17px;font-weight:800;text-decoration:none;cursor:pointer;transition:transform .15s,filter .15s;font:inherit;font-weight:800}
-    .btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
-    .btn-primary{background:linear-gradient(135deg,var(--purple),#5d9cff);color:white;box-shadow:0 10px 25px #6b5cff30}
-    .btn-secondary{background:#1a233a;border:1px solid var(--line);color:var(--text)}
-    .hero-card{position:relative;overflow:hidden;border:1px solid #394365;border-radius:25px;padding:25px;background:linear-gradient(145deg,#20264b,#101a2d 72%);box-shadow:0 24px 80px #0005}
-    .hero-card:before{content:"";position:absolute;width:200px;height:200px;right:-70px;top:-90px;background:#5b55e8;filter:blur(75px);opacity:.55}
-    .hero-card>*{position:relative}.hero-icon{font-size:3.8rem;margin:2px 0 10px}.hero-card h2{font-size:1.45rem;margin:0 0 8px}.hero-card p{font-size:.92rem;margin:0;color:var(--muted)}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{padding:12px;border-radius:13px;background:#ffffff08;border:1px solid #ffffff12}.stat strong{display:block;font-size:1.15rem}.stat span{font-size:.75rem;color:var(--muted)}
-    .notice{margin:8px auto 32px;padding:14px 16px;border-radius:13px;border:1px solid #6e5d2d;background:#2b2518;color:#f1dda2;font-size:.9rem}
-    .section{padding:27px 0 50px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:22px}.section-head h2{margin:0;font-size:clamp(1.55rem,3vw,2.2rem);letter-spacing:-.035em}.section-head p{margin:6px 0 0;color:var(--muted);max-width:650px}
-    .count{white-space:nowrap;border:1px solid var(--line);background:#121a2d;border-radius:999px;padding:7px 12px;color:#d9ddf2;font-size:.85rem}
-    .search-wrap{display:flex;gap:12px;margin-bottom:16px}.search-box{position:relative;flex:1}.search-box span{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#8996b6}.search-box input{width:100%;background:#11182b;border:1px solid var(--line);border-radius:13px;color:var(--text);padding:14px 15px 14px 44px;font:inherit;outline:none}.search-box input:focus{border-color:var(--purple);box-shadow:0 0 0 3px #8268ff25}
-    .filters{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 24px}.filter{border:1px solid var(--line);border-radius:999px;background:#11182b;color:#c4cbe0;padding:9px 14px;font:inherit;font-size:.86rem;cursor:pointer}.filter:hover,.filter.active{background:#302a60;border-color:#7968ef;color:white}
-    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.game{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:linear-gradient(180deg,#151e33,#101626);transition:transform .18s,border-color .18s}.game:hover{transform:translateY(-3px);border-color:#6056a7}.art{height:126px;display:flex;align-items:center;justify-content:center;position:relative;font-size:3.3rem;background:radial-gradient(circle at 50% 30%,#6553a6,#252544 65%,#141a2b)}.art small{position:absolute;top:11px;left:11px;border:1px solid #ffffff25;background:#080d1dbd;border-radius:999px;padding:4px 8px;font-size:.64rem;color:#e0e5ff;max-width:calc(100% - 22px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.art.orange{background:radial-gradient(circle at 50% 30%,#a95c36,#3b2630 65%,#141a2b)}.art.blue{background:radial-gradient(circle at 50% 30%,#347aa3,#202c50 65%,#141a2b)}.art.green{background:radial-gradient(circle at 50% 30%,#347e6d,#203b3b 65%,#141a2b)}.art.gold{background:radial-gradient(circle at 50% 30%,#a17a39,#40352b 65%,#141a2b)}.art.red{background:radial-gradient(circle at 50% 30%,#a6425a,#482538 65%,#141a2b)}
-    .game-info{padding:15px}.game-info h3{font-size:1rem;line-height:1.3;margin:0 0 7px}.game-info p{min-height:42px;font-size:.83rem;color:var(--muted);margin:0 0 13px}.game-info button{width:100%;border:1px solid #3b4564;background:#1a2440;color:#e7eaff;border-radius:10px;padding:10px 11px;font:inherit;font-size:.83rem;font-weight:750;cursor:pointer}.game-info button:hover{background:#302a60;border-color:#7868ec}.empty{display:none;text-align:center;padding:35px;color:var(--muted);border:1px dashed var(--line);border-radius:15px}
-    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.how-card{padding:20px;border:1px solid var(--line);border-radius:16px;background:#11182b}.step{display:grid;place-items:center;width:37px;height:37px;border-radius:12px;background:#302a60;color:#c9c1ff;font-weight:900;margin-bottom:12px}.how-card h3{margin:0 0 7px;font-size:1rem}.how-card p{margin:0;color:var(--muted);font-size:.9rem}
-    .contact{padding:30px;border:1px solid #384362;border-radius:22px;background:linear-gradient(135deg,#191c3b,#111a2c);text-align:center}.contact h2{margin:0 0 8px}.contact p{color:var(--muted);margin:0 auto 20px;max-width:620px}.contact-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.contact-email{font-size:.86rem;margin-top:18px!important}
-    footer{margin-top:55px;border-top:1px solid #ffffff12;padding:25px 0 32px;color:var(--muted);font-size:.85rem}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.footer-links{display:flex;gap:16px}.footer-links a{text-decoration:none}.footer-links a:hover{color:white}
-    .modal{display:none;position:fixed;inset:0;z-index:10;background:#030610c9;padding:20px;align-items:center;justify-content:center}.modal.open{display:flex}.modal-box{width:min(480px,100%);border:1px solid #465174;border-radius:20px;background:#121a2d;padding:24px;box-shadow:0 25px 100px #0009}.modal-top{display:flex;align-items:start;justify-content:space-between;gap:15px}.modal-box h2{margin:0 0 12px;font-size:1.4rem}.modal-box p{color:var(--muted);line-height:1.65}.close{border:1px solid var(--line);background:#202a43;color:white;border-radius:9px;padding:6px 10px;font:inherit;cursor:pointer}.modal-warning{background:#2b2518;border:1px solid #6e5d2d;color:#f1dda2;padding:12px;border-radius:11px;font-size:.86rem}
-    @media(max-width:950px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr .8fr}}
-    @media(max-width:700px){.nav-links{gap:12px;font-size:.82rem}.hero{grid-template-columns:1fr;padding-top:43px}.hero-card{max-width:520px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column}.how-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:420px){.container{width:min(100% - 22px,1160px)}.nav-links a:first-child{display:none}.grid{gap:10px}.game-info{padding:11px}.art{height:105px;font-size:2.7rem}.game-info h3{font-size:.91rem}.game-info p{font-size:.77rem;min-height:48px}.hero-actions .btn{width:100%}.contact{padding:23px 15px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>KitaTopUpin - Top Up Game</title>
+<style>
+:root{--bg:#0b1020;--card:#151d32;--line:#293652;--text:#f5f7ff;--muted:#aab5d0;--purple:#8262ff;--cyan:#50d8e8;--gold:#ffd48a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#211947,var(--bg) 55%);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.wrap{width:min(1100px,calc(100% - 28px));margin:auto}
+header{position:sticky;top:0;z-index:5;background:#0b1020ed;border-bottom:1px solid var(--line)}
+nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:21px;font-weight:900;letter-spacing:-.7px}
+.logo span{color:var(--cyan)}
+nav a{color:var(--muted);text-decoration:none;font-size:13px;margin-left:12px}
+.hero{padding:42px 0 30px}
+.tag{display:inline-block;background:#29214f;border:1px solid #5746a4;color:#ded5ff;padding:7px 11px;border-radius:30px;font-size:11px;font-weight:bold}
+h1{font-size:clamp(32px,6vw,53px);letter-spacing:-1.5px;line-height:1.08;margin:16px 0}
+h1 span{color:var(--cyan)}
+p{line-height:1.6}
+.muted{color:var(--muted)}
+.hero p{max-width:650px;color:var(--muted)}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{border:0;border-radius:10px;padding:12px 16px;font-weight:bold;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.primary{background:linear-gradient(100deg,var(--purple),#6155d9);color:white}
+.secondary{background:#202a42;color:white;border:1px solid var(--line)}
+section{padding:22px 0 35px}
+.heading{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:16px}
+h2{font-size:24px;margin:0 0 6px}
+.heading p{margin:0;color:var(--muted);font-size:13px}
+.search{width:100%;padding:13px 14px;background:var(--card);color:white;border:1px solid var(--line);border-radius:11px;margin-bottom:13px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 14px}
+.filter{white-space:nowrap;background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:25px;padding:9px 13px;font-size:12px;font-weight:bold}
+.filter.active{background:#35275f;border-color:var(--purple);color:white}
+.games{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.game{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(145deg,#19223a,#11182a)}
+.art{height:88px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#443080,#17536b)}
+.art small{font-size:10px;color:#e4e9ff;text-transform:uppercase;font-weight:bold}
+.art strong{font-size:30px}
+.gamebody{padding:12px}
+.game h3{font-size:13px;min-height:32px;margin:0 0 7px}
+.game p{font-size:11px;min-height:32px;color:var(--muted);margin:0 0 10px}
+.price{font-size:11px;color:var(--gold);display:block;margin-bottom:10px}
+.game .btn{width:100%;padding:10px;font-size:12px}
+.empty{display:none;text-align:center;color:var(--muted);padding:25px}
+.ordergrid{display:grid;grid-template-columns:1.15fr .85fr;gap:15px;align-items:start}
+.panel{background:linear-gradient(145deg,#18213a,#111728);border:1px solid var(--line);border-radius:16px;padding:19px}
+.step{display:flex;gap:10px;margin-bottom:16px}
+.number{width:29px;height:29px;flex:0 0 29px;display:grid;place-items:center;border-radius:9px;background:#302657;color:#e0d7ff;font-weight:bold}
+.step h3{margin:3px 0 5px;font-size:15px}
+.step p{margin:0;color:var(--muted);font-size:12px}
+.field{margin:14px 0}
+label{display:block;font-size:12px;font-weight:bold;margin-bottom:7px}
+input,select{width:100%;padding:12px;background:#0b1121;border:1px solid var(--line);border-radius:9px;color:white;outline:none}
+input:focus,select:focus{border-color:var(--purple)}
+.help{display:block;color:var(--muted);font-size:11px;margin-top:6px;line-height:1.5}
+.packages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:10px 0 18px}
+.package{position:relative;text-align:left;background:#0d1426;color:white;border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}
+.package strong{display:block;font-size:13px;margin-bottom:7px}
+.package small{color:var(--gold);font-size:11px}
+.package.selected{border-color:var(--purple);background:#2a204d;box-shadow:0 0 0 1px var(--purple) inset}
+.notice{background:#302516;border:1px solid #70572e;color:#ffe3ad;border-radius:10px;padding:12px;font-size:12px;line-height:1.6;margin:15px 0}
+.summaryhead{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.summaryhead h3{margin:0;font-size:17px}
+.status{font-size:10px;background:#49351c;color:#ffe2a5;border-radius:20px;padding:6px 8px;font-weight:bold}
+.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #ffffff12;font-size:12px}
+.row span{color:var(--muted)}
+.row strong{text-align:right;overflow-wrap:anywhere}
+.total{display:flex;justify-content:space-between;gap:10px;padding:17px 0;font-weight:bold}
+.total strong{color:var(--gold)}
+.full{width:100%;margin-top:10px}
+.fine{color:var(--muted);font-size:11px;line-height:1.6}
+.howgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.how{padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.how h3{font-size:14px}
+.how p{font-size:12px;color:var(--muted);margin-bottom:0}
+.contact{padding:22px;background:linear-gradient(120deg,#27204c,#14233a);border:1px solid var(--line);border-radius:16px}
+.contact p{color:var(--muted);font-size:13px}
+.contactbuttons{display:flex;gap:10px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:11px;line-height:1.7}
+@media(max-width:850px){.games{grid-template-columns:repeat(3,minmax(0,1fr))}.ordergrid{grid-template-columns:1fr}}
+@media(max-width:560px){.games{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.art{height:78px}.gamebody{padding:10px}.game h3{font-size:12px}.panel{padding:14px}.howgrid{grid-template-columns:1fr}nav a{margin-left:6px;font-size:11px}.logo{font-size:18px}.hero{padding-top:30px}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#beranda" aria-label="KitaTopUpin beranda"><span class="brand-mark">K</span><span>Kita<em>TopUpin</em></span></a>
-      <nav class="nav-links" aria-label="Navigasi utama"><a href="#katalog">Katalog</a><a href="#cara-kerja">Cara Kerja</a><a href="#kontak">Kontak</a></nav>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">Kita<span>TopUpin</span></div>
+      <div><a href="#katalog">Game</a><a href="#pesan">Pesan</a><a href="#kontak">Kontak</a></div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <span class="tag">KATALOG TOP UP GAME</span>
+    <h1>Top up game favoritmu.<br><span>Pilih paketnya di sini.</span></h1>
+    <p>Pilih game, pilih nominal diamond atau voucher, lalu siapkan detail pesanan. Harga dan transaksi resmi akan diaktifkan setelah pemasok serta sistem pembelian dikonfirmasi.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#katalog">Pilih Game</a>
+      <a class="btn secondary" href="#pesan">Lihat Pesanan</a>
     </div>
-  </header>
-
-  <main>
-    <section class="container hero" id="beranda">
-      <div>
-        <span class="eyebrow">✦ Katalog Game & Voucher Digital</span>
-        <h1>Temukan kebutuhan game <span class="gradient">favoritmu.</span></h1>
-        <p>Jelajahi katalog game, voucher platform, dan aplikasi hiburan dalam satu tempat. Cari produk yang kamu butuhkan dan cek informasi ketersediaannya.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#katalog">Jelajahi Katalog <span aria-hidden="true">→</span></a><a class="btn btn-secondary" href="#cara-kerja">Cara Kerja</a></div>
-      </div>
-      <aside class="hero-card">
-        <div class="hero-icon" aria-hidden="true">🎮</div>
-        <h2>Satu katalog, banyak pilihan.</h2>
-        <p>Temukan game mobile, RPG, game PC, voucher digital, dan aplikasi hiburan.</p>
-        <div class="stats"><div class="stat"><strong id="heroCount">42</strong><span>Produk katalog</span></div><div class="stat"><strong>5</strong><span>Kategori</span></div><div class="stat"><strong>24/7</strong><span>Akses katalog</span></div></div>
-      </aside>
-    </section>
-
-    <div class="container notice"><strong>Informasi:</strong> KitaTopUpin saat ini merupakan katalog informasi. Pembelian belum diproses langsung di website ini. Ketersediaan produk dan tautan afiliasi mitra masih disiapkan; jangan melakukan pembayaran melalui pihak yang mengaku mewakili website ini tanpa verifikasi.</div>
-
-    <section class="container section" id="katalog">
-      <div class="section-head"><div><h2>Jelajahi Katalog</h2><p>Cari nama game atau pilih kategori. Detail produk saat ini bersifat informatif, bukan konfirmasi bahwa top-up tersedia.</p></div><span class="count" id="count">42 produk</span></div>
-      <div class="search-wrap"><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Cari game, voucher, atau aplikasi..." autocomplete="off" aria-label="Cari produk"></label></div>
-      <div class="filters" aria-label="Filter kategori">
-        <button class="filter active" data-category="Semua" type="button">Semua Produk</button>
-        <button class="filter" data-category="Mobile & Strategi" type="button">Mobile & Strategi</button>
-        <button class="filter" data-category="RPG & Anime" type="button">RPG & Anime</button>
-        <button class="filter" data-category="PC & Sandbox" type="button">PC & Sandbox</button>
-        <button class="filter" data-category="Voucher Platform" type="button">Voucher Platform</button>
-        <button class="filter" data-category="Aplikasi Hiburan" type="button">Aplikasi Hiburan</button>
-      </div>
-      <div class="grid" id="grid"></div>
-      <div class="empty" id="empty">Produk tidak ditemukan. Coba kata kunci atau kategori lain.</div>
-    </section>
-
-    <section class="container section" id="cara-kerja">
-      <div class="section-head"><div><h2>Cara Kerja</h2><p>Alur yang transparan untuk katalog afiliasi.</p></div></div>
-      <div class="how-grid">
-        <article class="how-card"><div class="step">01</div><h3>Pilih produk</h3><p>Gunakan pencarian dan filter untuk menemukan game, voucher, atau aplikasi.</p></article>
-        <article class="how-card"><div class="step">02</div><h3>Periksa informasi</h3><p>Baca keterangan produk. Harga, stok, dan metode pembayaran belum ditampilkan sebelum mitra terverifikasi.</p></article>
-        <article class="how-card"><div class="step">03</div><h3>Lanjut melalui mitra resmi</h3><p>Jika tautan afiliasi sudah tersedia, pembelian akan dilakukan di layanan mitra. KitaTopUpin tidak menyimpan pembayaran atau kata sandi game.</p></article>
-      </div>
-    </section>
-
-    <section class="container section" id="kontak">
-      <div class="contact">
-        <h2>Hubungi KitaTopUpin</h2>
-        <p>Ada pertanyaan tentang katalog atau ingin melaporkan informasi produk? Hubungi kami melalui saluran berikut.</p>
-        <div class="contact-actions"><a class="btn btn-primary" href="https://wa.me/6282134061918" target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a><a class="btn btn-secondary" href="mailto:kitatopupin@gmail.com?subject=Pertanyaan%20KitaTopUpin">Kirim Email</a></div>
-        <p class="contact-email">Email: <a href="mailto:kitatopupin@gmail.com">kitatopupin@gmail.com</a></p>
-      </div>
-    </section>
-  </main>
-
-  <footer><div class="container footer-row"><span>© <span id="year"></span> KitaTopUpin. Katalog informasi game dan voucher digital.</span><div class="footer-links"><a href="#cara-kerja">Cara Kerja</a><a href="#kontak">Kontak</a></div></div><div class="container" style="margin-top:12px">Nama game dan merek merupakan milik pemegang hak masing-masing. KitaTopUpin tidak berafiliasi dengan penerbit game kecuali dinyatakan secara resmi.</div></footer>
-
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-box"><div class="modal-top"><h2 id="modalTitle">Informasi Produk</h2><button class="close" id="close" type="button" aria-label="Tutup jendela">✕</button></div><p id="modalText"></p><div class="modal-warning">Ketersediaan produk dan tautan pembelian sedang disiapkan. Jangan anggap tombol ini sebagai proses pemesanan atau pembayaran.</div><div style="margin-top:18px"><button class="btn btn-secondary" id="closeBottom" type="button">Tutup</button></div></div>
   </div>
 
-  <script>
-    const products = [
-      ["Mobile Legends: Bang Bang","Mobile & Strategi","Diamond, Twilight Pass, WDP","⚔️",""],
-      ["Free Fire","Mobile & Strategi","Diamond dan Booyah Pass","🔥","orange"],
-      ["Free Fire MAX","Mobile & Strategi","Diamond dan Booyah Pass","🔥","orange"],
-      ["PUBG Mobile","Mobile & Strategi","Unknown Cash (UC)","🎯","blue"],
-      ["Magic Chess: Go Go","Mobile & Strategi","Diamonds dan Pass","♟️",""],
-      ["Call of Duty: Mobile (CODM)","Mobile & Strategi","COD Points (CP)","🎯","blue"],
-      ["EA SPORTS FC Mobile","Mobile & Strategi","FC Points dan Silver","⚽","green"],
-      ["eFootball","Mobile & Strategi","eFootball Coins","⚽","blue"],
-      ["League of Legends: Wild Rift","Mobile & Strategi","Wild Cores","🛡️",""],
-      ["Arena of Valor (AOV)","Mobile & Strategi","Informasi produk sedang disiapkan","🛡️",""],
-      ["Stumble Guys","Mobile & Strategi","Gems dan Tokens","🏃","orange"],
-      ["Clash of Clans","Mobile & Strategi","Informasi produk sedang disiapkan","🏰","green"],
-      ["Clash Royale","Mobile & Strategi","Informasi produk sedang disiapkan","👑","gold"],
-      ["Top Eleven","Mobile & Strategi","Tokens","⚽","green"],
-      ["Growtopia","Mobile & Strategi","Gems dan Items","🌳","green"],
-      ["Azur Lane","Mobile & Strategi","Gems","🚢","blue"],
-      ["Speed Drifters","Mobile & Strategi","Informasi produk sedang disiapkan","🏎️","red"],
-      ["Genshin Impact","RPG & Anime","Genesis Crystals dan Welkin Moon","✨","green"],
-      ["Honkai: Star Rail","RPG & Anime","Oneiric Shards dan Express Supply Pass","🚄","blue"],
-      ["Zenless Zone Zero (ZZZ)","RPG & Anime","Monochromes","🌌","red"],
-      ["Undawn","RPG & Anime","Raven Cards (RC)","🧟","green"],
-      ["Black Clover M","RPG & Anime","Informasi produk sedang disiapkan","🍀","green"],
-      ["AFK Journey","RPG & Anime","Informasi produk sedang disiapkan","🧙","gold"],
-      ["Yong Heroes","RPG & Anime","Informasi produk sedang disiapkan","🐉","red"],
-      ["VALORANT","PC & Sandbox","VALORANT Points dan Battle Pass","🎯","red"],
-      ["Roblox","PC & Sandbox","Robux dan Gift Cards","◇","red"],
-      ["Minecraft","PC & Sandbox","Minecoins dan Game Code","⛏️","green"],
-      ["Steam Wallet Code Indonesia","Voucher Platform","Saldo untuk pembelian di Steam","🎮","blue"],
-      ["Garena Shells","Voucher Platform","Kredit untuk game ekosistem Garena","🐉","red"],
-      ["Megaxus Mi-Cash","Voucher Platform","Kredit untuk game Megaxus","🪙","gold"],
-      ["Google Play Gift Card","Voucher Platform","Saldo Google Play untuk Android","▶️","green"],
-      ["Apple Gift Card","Voucher Platform","Saldo layanan Apple dan App Store","",""],
-      ["Nintendo eShop Card","Voucher Platform","Saldo Nintendo eShop","🎮","red"],
-      ["PlayStation Network (PSN) Card","Voucher Platform","Saldo PlayStation PS4 dan PS5","🎮","blue"],
-      ["Hago","Aplikasi Hiburan","Diamond","💎","green"],
-      ["ZEPETO","Aplikasi Hiburan","ZEM dan Koin","👗","red"],
-      ["Tinder","Aplikasi Hiburan","Informasi paket berbayar sedang disiapkan","♥️","red"],
-      ["Bigo Live","Aplikasi Hiburan","Diamond","💎","blue"],
-      ["Poppo Live","Aplikasi Hiburan","Informasi produk sedang disiapkan","💎","red"],
-      ["StarMaker","Aplikasi Hiburan","Informasi produk sedang disiapkan","🎤","gold"],
-      ["SUGO","Aplikasi Hiburan","Informasi produk sedang disiapkan","💬","blue"],
-      ["TeraBox","Aplikasi Hiburan","Voucher premium berlangganan","☁️","blue"]
-    ];
+  <section class="wrap" id="katalog">
+    <div class="heading">
+      <div><h2>Pilih game</h2><p>Cari game yang ingin kamu isi.</p></div>
+      <span class="muted" id="count">42 produk</span>
+    </div>
+    <input class="search" id="search" placeholder="Cari Mobile Legends, Free Fire, Roblox..." aria-label="Cari game">
+    <div class="filters" id="filters">
+      <button class="filter active" data-cat="Semua">Semua</button>
+      <button class="filter" data-cat="Mobile & Strategi">Mobile & Strategi</button>
+      <button class="filter" data-cat="RPG & Anime">RPG & Anime</button>
+      <button class="filter" data-cat="PC & Sandbox">PC & Sandbox</button>
+      <button class="filter" data-cat="Voucher Platform">Voucher Platform</button>
+      <button class="filter" data-cat="Aplikasi Hiburan">Aplikasi Hiburan</button>
+    </div>
+    <div class="games" id="games"></div>
+    <div class="empty" id="empty">Game tidak ditemukan.</div>
+  </section>
 
-    const grid = document.getElementById("grid");
-    const search = document.getElementById("search");
-    const filters = [...document.querySelectorAll(".filter")];
-    const modal = document.getElementById("modal");
-    let category = "Semua";
+  <section class="wrap" id="pesan">
+    <div class="heading"><div><h2>Isi detail pesanan</h2><p>Pilih nominal dan masukkan ID pemain.</p></div></div>
+    <div class="ordergrid">
+      <div class="panel">
+        <div class="step"><span class="number">1</span><div><h3>Pilih game</h3><p>Pilih game yang ingin kamu top up.</p></div></div>
+        <div class="field">
+          <label for="gameSelect">Game / voucher</label>
+          <select id="gameSelect"></select>
+        </div>
 
-    function createCards() {
-      grid.replaceChildren();
-      products.forEach((product, index) => {
-        const card = document.createElement("article");
-        card.className = "game";
-        card.dataset.name = product[0].toLowerCase();
-        card.dataset.category = product[1];
+        <div class="step"><span class="number">2</span><div><h3>Pilih nominal</h3><p>Nominal berikut adalah contoh pilihan katalog, bukan konfirmasi stok pemasok.</p></div></div>
+        <div class="packages" id="packages"></div>
 
-        const art = document.createElement("div");
-        art.className = "art " + product[4];
-        const tag = document.createElement("small");
-        tag.textContent = product[1];
-        art.append(tag, document.createTextNode(product[3]));
+        <div class="step"><span class="number">3</span><div><h3>Masukkan ID pemain</h3><p>Periksa ID sebelum melanjutkan.</p></div></div>
+        <div class="field">
+          <label for="playerId">User ID / Player ID / akun tujuan</label>
+          <input id="playerId" placeholder="Masukkan ID pemain" autocomplete="off">
+          <small class="help">Jangan masukkan kata sandi atau kode OTP.</small>
+        </div>
+        <div class="field" id="zoneField">
+          <label for="zoneId">Zone ID (jika diperlukan)</label>
+          <input id="zoneId" placeholder="Masukkan Zone ID jika game memerlukannya" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="contactInput">Kontak kamu (opsional)</label>
+          <input id="contactInput" placeholder="Nomor WhatsApp atau email" autocomplete="off">
+        </div>
+        <div class="notice">Katalog masih dalam tahap persiapan. Harga final, ketersediaan, pembayaran, dan proses top-up belum aktif. Jangan melakukan pembayaran sebelum detail resmi dikonfirmasi.</div>
+      </div>
 
-        const info = document.createElement("div");
-        info.className = "game-info";
-        const title = document.createElement("h3");
-        title.textContent = product[0];
-        const description = document.createElement("p");
-        description.textContent = product[2];
-        const button = document.createElement("button");
-        button.type = "button";
-        button.dataset.index = String(index);
-        button.textContent = "Lihat Informasi ↗";
-        info.append(title, description, button);
-        card.append(art, info);
-        grid.append(card);
-      });
-    }
+      <aside class="panel">
+        <div class="summaryhead"><h3>Ringkasan pesanan</h3><span class="status">BELUM AKTIF</span></div>
+        <div class="row"><span>Game</span><strong id="sumGame">Mobile Legends: Bang Bang</strong></div>
+        <div class="row"><span>Nominal</span><strong id="sumPack">86 Diamond</strong></div>
+        <div class="row"><span>User ID</span><strong id="sumId">Belum diisi</strong></div>
+        <div class="row"><span>Zone ID</span><strong id="sumZone">—</strong></div>
+        <div class="row"><span>Harga</span><strong>Belum tersedia</strong></div>
+        <div class="total"><span>Total</span><strong>Belum tersedia</strong></div>
+        <button class="btn primary full" id="whatsappOrder">Tanyakan via WhatsApp</button>
+        <p class="fine">Tombol ini hanya membuka WhatsApp dengan detail pertanyaan. Tombol tidak melakukan transaksi, tidak memotong saldo, dan tidak menjamin produk tersedia.</p>
+        <a class="btn secondary full" href="mailto:kitatopupin@gmail.com?subject=Pertanyaan%20KitaTopUpin">Tanya melalui email</a>
+      </aside>
+    </div>
+  </section>
 
-    function render() {
-      const query = search.value.trim().toLowerCase();
-      let shown = 0;
-      grid.querySelectorAll(".game").forEach(card => {
-        const matchName = card.dataset.name.includes(query) || card.textContent.toLowerCase().includes(query);
-        const matchCategory = category === "Semua" || card.dataset.category === category;
-        const visible = matchName && matchCategory;
-        card.hidden = !visible;
-        shown += visible ? 1 : 0;
-      });
-      document.getElementById("count").textContent = `${shown} dari ${products.length} produk`;
-      document.getElementById("empty").style.display = shown ? "none" : "block";
-    }
+  <section class="wrap">
+    <div class="heading"><div><h2>Cara kerja</h2><p>Transaksi baru dibuka setelah pemasok siap.</p></div></div>
+    <div class="howgrid">
+      <div class="how"><span class="number">1</span><h3>Pilih game</h3><p>Pilih game dan paket nominal yang diinginkan.</p></div>
+      <div class="how"><span class="number">2</span><h3>Periksa detail</h3><p>Periksa ID pemain, nominal, ketersediaan, dan harga final.</p></div>
+      <div class="how"><span class="number">3</span><h3>Konfirmasi pesanan</h3><p>Pembelian akan tersedia setelah mitra, pembayaran, dan integrasi resmi disiapkan.</p></div>
+    </div>
+  </section>
 
-    function closeModal() {
-      modal.classList.remove("open");
-    }
+  <section class="wrap" id="kontak">
+    <div class="contact">
+      <h2>Hubungi KitaTopUpin</h2>
+      <p>Ada pertanyaan tentang game atau ketersediaan produk?</p>
+      <p>WhatsApp: 6282134061918<br>Email: kitatopupin@gmail.com</p>
+      <div class="contactbuttons">
+        <a class="btn primary" href="https://wa.me/6282134061918" target="_blank" rel="noopener noreferrer">Hubungi WhatsApp</a>
+        <a class="btn secondary" href="mailto:kitatopupin@gmail.com">Kirim Email</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-    createCards();
-    render();
-    document.getElementById("heroCount").textContent = products.length;
-    document.getElementById("year").textContent = new Date().getFullYear();
-    search.addEventListener("input", render);
-    filters.forEach(button => button.addEventListener("click", () => {
-      category = button.dataset.category;
-      filters.forEach(item => item.classList.toggle("active", item === button));
-      render();
-    }));
-    grid.addEventListener("click", event => {
-      const button = event.target.closest("button[data-index]");
-      if (!button) return;
-      const product = products[Number(button.dataset.index)];
-      document.getElementById("modalTitle").textContent = product[0];
-      document.getElementById("modalText").textContent = `Informasi ${product[0]}: ${product[2]}. Ketersediaan dan tautan afiliasi sedang disiapkan. Periksa mitra resmi sebelum melakukan pembelian.`;
-      modal.classList.add("open");
-      document.getElementById("close").focus();
-    });
-    document.getElementById("close").addEventListener("click", closeModal);
-    document.getElementById("closeBottom").addEventListener("click", closeModal);
-    modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
-    document.addEventListener("keydown", event => { if (event.key === "Escape") closeModal(); });
-  </script>
+<footer><div class="wrap">
+  © <span id="year"></span> KitaTopUpin. Katalog independen. Merek dan nama game adalah milik pemilik masing-masing. KitaTopUpin belum menyatakan afiliasi resmi dengan penerbit game atau penyedia produk digital. Nominal adalah pilihan awal untuk desain; cek kesesuaian dengan katalog pemasok sebelum mengaktifkan penjualan.
+</div></footer>
+
+<script>
+const products = [
+{name:"Mobile Legends: Bang Bang",cat:"Mobile & Strategi",icon:"⚔️",desc:"Diamond, WDP, Twilight Pass",zone:true,packs:["86 Diamond","172 Diamond","257 Diamond","344 Diamond","429 Diamond","514 Diamond","706 Diamond","878 Diamond","Weekly Diamond Pass","Twilight Pass"]},
+{name:"Free Fire",cat:"Mobile & Strategi",icon:"🔥",desc:"Diamond dan Booyah Pass",packs:["5 Diamond","12 Diamond","50 Diamond","70 Diamond","140 Diamond","355 Diamond","720 Diamond","Booyah Pass"]},
+{name:"Free Fire MAX",cat:"Mobile & Strategi",icon:"🔥",desc:"Diamond dan Booyah Pass",packs:["5 Diamond","12 Diamond","50 Diamond","70 Diamond","140 Diamond","355 Diamond","720 Diamond","Booyah Pass"]},
+{name:"PUBG Mobile",cat:"Mobile & Strategi",icon:"🎯",desc:"Unknown Cash (UC)",packs:["60 UC","325 UC","660 UC","1800 UC","3850 UC","8100 UC"]},
+{name:"Magic Chess: Go Go",cat:"Mobile & Strategi",icon:"♟️",desc:"Diamonds dan Pass",zone:true,packs:["Paket Diamonds","Pass"]},
+{name:"Call of Duty: Mobile",cat:"Mobile & Strategi",icon:"🎯",desc:"COD Points (CP)",packs:["31 CP","62 CP","127 CP","317 CP","645 CP","1290 CP"]},
+{name:"EA SPORTS FC Mobile",cat:"Mobile & Strategi",icon:"⚽",desc:"FC Points dan Silver",packs:["Paket FC Points","Paket Silver"]},
+{name:"eFootball",cat:"Mobile & Strategi",icon:"⚽",desc:"eFootball Coins",packs:["100 Coins","300 Coins","550 Coins","1040 Coins","2130 Coins"]},
+{name:"League of Legends: Wild Rift",cat:"Mobile & Strategi",icon:"🛡️",desc:"Wild Cores",packs:["Paket Wild Cores"]},
+{name:"Arena of Valor (AOV)",cat:"Mobile & Strategi",icon:"🛡️",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"Stumble Guys",cat:"Mobile & Strategi",icon:"🏃",desc:"Gems dan Tokens",packs:["Paket Gems","Paket Tokens"]},
+{name:"Clash of Clans",cat:"Mobile & Strategi",icon:"🏰",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"Clash Royale",cat:"Mobile & Strategi",icon:"👑",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"Top Eleven",cat:"Mobile & Strategi",icon:"⚽",desc:"Tokens",packs:["Paket Tokens"]},
+{name:"Growtopia",cat:"Mobile & Strategi",icon:"🌳",desc:"Gems dan Items",packs:["Paket Gems / Items"]},
+{name:"Azur Lane",cat:"Mobile & Strategi",icon:"🚢",desc:"Gems",packs:["Paket Gems"]},
+{name:"Speed Drifters",cat:"Mobile & Strategi",icon:"🏎️",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"Genshin Impact",cat:"RPG & Anime",icon:"✨",desc:"Genesis Crystals dan Welkin Moon",packs:["60 Genesis Crystals","300 Genesis Crystals","980 Genesis Crystals","1980 Genesis Crystals","3280 Genesis Crystals","Welkin Moon"]},
+{name:"Honkai: Star Rail",cat:"RPG & Anime",icon:"🚄",desc:"Oneiric Shards dan Express Pass",packs:["60 Oneiric Shards","300 Oneiric Shards","980 Oneiric Shards","1980 Oneiric Shards","3280 Oneiric Shards","Express Supply Pass"]},
+{name:"Zenless Zone Zero",cat:"RPG & Anime",icon:"🌌",desc:"Monochromes",packs:["60 Monochromes","300 Monochromes","980 Monochromes","1980 Monochromes","3280 Monochromes"]},
+{name:"Undawn",cat:"RPG & Anime",icon:"🧟",desc:"Raven Cards (RC)",packs:["Paket RC"]},
+{name:"Black Clover M",cat:"RPG & Anime",icon:"🍀",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"AFK Journey",cat:"RPG & Anime",icon:"🧙",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"Yong Heroes",cat:"RPG & Anime",icon:"🐉",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"VALORANT",cat:"PC & Sandbox",icon:"🎯",desc:"VALORANT Points",packs:["475 VP","1000 VP","2050 VP","3650 VP","5350 VP","11000 VP"]},
+{name:"Roblox",cat:"PC & Sandbox",icon:"◇",desc:"Robux atau Gift Card",packs:["Paket Robux","Gift Card"]},
+{name:"Minecraft",cat:"PC & Sandbox",icon:"⛏️",desc:"Minecoins atau Game Code",packs:["Minecoins","Game Code"]},
+{name:"Steam Wallet Code Indonesia",cat:"Voucher Platform",icon:"🎮",desc:"Saldo Steam",packs:["Steam Wallet Rp 6.000","Steam Wallet Rp 12.000","Steam Wallet Rp 45.000","Steam Wallet Rp 60.000","Steam Wallet Rp 90.000","Steam Wallet Rp 120.000"]},
+{name:"Garena Shells",cat:"Voucher Platform",icon:"🐉",desc:"Kredit game Garena",packs:["Paket Garena Shells"]},
+{name:"Megaxus Mi-Cash",cat:"Voucher Platform",icon:"🪙",desc:"Kredit game Megaxus",packs:["Paket Mi-Cash"]},
+{name:"Google Play Gift Card",cat:"Voucher Platform",icon:"▶️",desc:"Saldo Google Play",packs:["Google Play Gift Card"]},
+{name:"Apple Gift Card",cat:"Voucher Platform",icon:"",desc:"Saldo Apple / App Store",packs:["Apple Gift Card"]},
+{name:"Nintendo eShop Card",cat:"Voucher Platform",icon:"🎮",desc:"Saldo Nintendo eShop",packs:["Nintendo eShop Card"]},
+{name:"PlayStation Network Card",cat:"Voucher Platform",icon:"🎮",desc:"Saldo PS4 dan PS5",packs:["Voucher PSN"]},
+{name:"Hago",cat:"Aplikasi Hiburan",icon:"💎",desc:"Diamond",packs:["Paket Diamond"]},
+{name:"ZEPETO",cat:"Aplikasi Hiburan",icon:"👗",desc:"ZEM dan Koin",packs:["Paket ZEM","Paket Koin"]},
+{name:"Tinder",cat:"Aplikasi Hiburan",icon:"♥️",desc:"Paket berbayar perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"Bigo Live",cat:"Aplikasi Hiburan",icon:"💎",desc:"Diamond",packs:["Paket Diamond"]},
+{name:"Poppo Live",cat:"Aplikasi Hiburan",icon:"💎",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"StarMaker",cat:"Aplikasi Hiburan",icon:"🎤",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"SUGO",cat:"Aplikasi Hiburan",icon:"💬",desc:"Paket perlu dikonfirmasi",packs:["Paket belum dikonfirmasi"]},
+{name:"TeraBox",cat:"Aplikasi Hiburan",icon:"☁️",desc:"Voucher premium",packs:["Paket Premium"]}
+];
+
+const gamesEl=document.getElementById("games");
+const searchEl=document.getElementById("search");
+const gameSelect=document.getElementById("gameSelect");
+const packagesEl=document.getElementById("packages");
+let category="Semua";
+let selectedGame=products[0];
+let selectedPack=products[0].packs[0];
+
+function renderCards(){
+  const q=searchEl.value.trim().toLowerCase();
+  const list=products.filter(p=>(category==="Semua"||p.cat===category)&&(p.name+" "+p.desc).toLowerCase().includes(q));
+  gamesEl.innerHTML=list.map(p=>`
+    <article class="game">
+      <div class="art"><small>${p.cat}</small><strong>${p.icon}</strong></div>
+      <div class="gamebody">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <span class="price">Harga belum tersedia</span>
+        <button class="btn primary choose" data-name="${p.name.replace(/&/g,"&amp;").replace(/"/g,"&quot;")}">Pilih nominal</button>
+      </div>
+    </article>`).join("");
+  document.getElementById("count").textContent=list.length+" produk";
+  document.getElementById("empty").style.display=list.length?"none":"block";
+}
+
+function renderPackages(){
+  packagesEl.innerHTML=selectedGame.packs.map(pack=>`
+    <button type="button" class="package ${pack===selectedPack?"selected":""}" data-pack="${pack.replace(/"/g,"&quot;")}">
+      <strong>${pack}</strong><small>Harga belum tersedia</small>
+    </button>`).join("");
+  document.getElementById("sumGame").textContent=selectedGame.name;
+  document.getElementById("sumPack").textContent=selectedPack;
+  document.getElementById("zoneField").style.display=selectedGame.zone?"block":"block";
+  document.getElementById("zoneId").placeholder=selectedGame.zone?"Masukkan Zone ID jika diperlukan":"Kosongkan jika tidak diperlukan";
+  updateSummary();
+}
+
+function chooseGame(name,scroll=true){
+  const p=products.find(x=>x.name===name);
+  if(!p)return;
+  selectedGame=p;
+  selectedPack=p.packs[0];
+  gameSelect.value=p.name;
+  renderPackages();
+  if(scroll)document.getElementById("pesan").scrollIntoView({behavior:"smooth"});
+}
+
+function updateSummary(){
+  document.getElementById("sumId").textContent=document.getElementById("playerId").value.trim()||"Belum diisi";
+  document.getElementById("sumZone").textContent=document.getElementById("zoneId").value.trim()||"—";
+}
+
+gameSelect.innerHTML=products.map(p=>`<option value="${p.name}">${p.name}</option>`).join("");
+gamesEl.addEventListener("click",e=>{
+  const b=e.target.closest(".choose");
+  if(b)chooseGame(b.dataset.name);
+});
+searchEl.addEventListener("input",renderCards);
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
+  category=b.dataset.cat;
+  document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));
+  renderCards();
+}));
+gameSelect.addEventListener("change",()=>chooseGame(gameSelect.value,false));
+packagesEl.addEventListener("click",e=>{
+  const b=e.target.closest(".package");
+  if(!b)return;
+  selectedPack=b.dataset.pack;
+  renderPackages();
+});
+["playerId","zoneId"].forEach(id=>document.getElementById(id).addEventListener("input",updateSummary));
+
+document.getElementById("whatsappOrder").addEventListener("click",()=>{
+  const player=document.getElementById("playerId").value.trim();
+  const zone=document.getElementById("zoneId").value.trim();
+  const contact=document.getElementById("contactInput").value.trim();
+  if(!player){
+    alert("Masukkan User ID / Player ID terlebih dahulu.");
+    document.getElementById("playerId").focus();
+    return;
+  }
+  const message=[
+    "Halo KitaTopUpin, saya ingin bertanya tentang ketersediaan produk.",
+    "",
+    "Game: "+selectedGame.name,
+    "Nominal: "+selectedPack,
+    "User ID: "+player,
+    "Zone ID: "+(zone||"-"),
+    "Harga: belum tersedia, mohon konfirmasi",
+    "Kontak: "+(contact||"-"),
+    "",
+    "Saya memahami ini hanya pertanyaan ketersediaan, bukan konfirmasi transaksi."
+  ].join("\n");
+  window.open("https://wa.me/6282134061918?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");
+});
+document.getElementById("year").textContent=new Date().getFullYear();
+renderCards();
+renderPackages();
+</script>
 </body>
 </html>
