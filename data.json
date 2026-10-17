@@ -1,0 +1,806 @@
+{
+  "store": {
+    "name": "TopUpKita",
+    "tagline": "Top up game favoritmu, cepat dan praktis.",
+    "logoText": "TK",
+    "currency": "IDR",
+    "supportWhatsApp": "6281234567890",
+    "announcement": "Promo gamer pilihan — transaksi demo, bukan pembayaran sungguhan."
+  },
+  "categories": [
+    {
+      "id": "all",
+      "label": "Semua"
+    },
+    {
+      "id": "moba",
+      "label": "MOBA"
+    },
+    {
+      "id": "rpg",
+      "label": "RPG"
+    },
+    {
+      "id": "battle-royale",
+      "label": "Battle Royale"
+    },
+    {
+      "id": "shooter",
+      "label": "Shooter"
+    },
+    {
+      "id": "voucher",
+      "label": "Voucher & Digital"
+    }
+  ],
+  "banners": [
+    {
+      "eyebrow": "EVENT SPESIAL",
+      "title": "Level up, tanpa ribet.",
+      "description": "Temukan top-up game dan voucher digital favoritmu dalam satu tempat.",
+      "badge": "Pilihan gamer",
+      "theme": "purple",
+      "gameId": "mlbb",
+      "cta": "Jelajahi katalog"
+    },
+    {
+      "eyebrow": "TOP-UP FAVORIT",
+      "title": "Waktunya push rank!",
+      "description": "Pilih nominal, metode pembayaran demo, lalu lihat invoice instan.",
+      "badge": "Cepat & praktis",
+      "theme": "blue",
+      "gameId": "free-fire",
+      "cta": "Mulai top-up"
+    },
+    {
+      "eyebrow": "VOUCHER DIGITAL",
+      "title": "Hiburan selalu dekat.",
+      "description": "Voucher game dan layanan digital dalam satu katalog.",
+      "badge": "Katalog digital",
+      "theme": "orange",
+      "gameId": "steam",
+      "cta": "Lihat voucher"
+    }
+  ],
+  "paymentMethods": [
+    {
+      "id": "qris",
+      "name": "QRIS",
+      "category": "ewallet",
+      "group": "E-Wallet",
+      "description": "Scan kode demo",
+      "icon": "▦",
+      "fee": 0
+    },
+    {
+      "id": "dana",
+      "name": "DANA",
+      "category": "ewallet",
+      "group": "E-Wallet",
+      "description": "Dompet digital",
+      "icon": "D",
+      "fee": 0
+    },
+    {
+      "id": "ovo",
+      "name": "OVO",
+      "category": "ewallet",
+      "group": "E-Wallet",
+      "description": "Dompet digital",
+      "icon": "O",
+      "fee": 1000
+    },
+    {
+      "id": "gopay",
+      "name": "GoPay",
+      "category": "ewallet",
+      "group": "E-Wallet",
+      "description": "Dompet digital",
+      "icon": "G",
+      "fee": 0
+    },
+    {
+      "id": "shopeepay",
+      "name": "ShopeePay",
+      "category": "ewallet",
+      "group": "E-Wallet",
+      "description": "Dompet digital",
+      "icon": "S",
+      "fee": 0
+    },
+    {
+      "id": "bca",
+      "name": "BCA Virtual Account",
+      "category": "va",
+      "group": "Virtual Account Bank",
+      "description": "Transfer bank",
+      "icon": "B",
+      "fee": 2500
+    },
+    {
+      "id": "mandiri",
+      "name": "Mandiri Virtual Account",
+      "category": "va",
+      "group": "Virtual Account Bank",
+      "description": "Transfer bank",
+      "icon": "M",
+      "fee": 2500
+    },
+    {
+      "id": "bri",
+      "name": "BRI Virtual Account",
+      "category": "va",
+      "group": "Virtual Account Bank",
+      "description": "Transfer bank",
+      "icon": "R",
+      "fee": 2500
+    },
+    {
+      "id": "bni",
+      "name": "BNI Virtual Account",
+      "category": "va",
+      "group": "Virtual Account Bank",
+      "description": "Transfer bank",
+      "icon": "N",
+      "fee": 2500
+    },
+    {
+      "id": "indomaret",
+      "name": "Indomaret",
+      "category": "retail",
+      "group": "Convenience Store",
+      "description": "Bayar di kasir",
+      "icon": "I",
+      "fee": 3000
+    },
+    {
+      "id": "alfamart",
+      "name": "Alfamart",
+      "category": "retail",
+      "group": "Convenience Store",
+      "description": "Bayar di kasir",
+      "icon": "A",
+      "fee": 3000
+    }
+  ],
+  "promos": [
+    {
+      "id": "welcome",
+      "label": "WELCOME5",
+      "description": "Diskon 5% untuk simulasi transaksi",
+      "type": "percent",
+      "value": 5,
+      "active": true
+    },
+    {
+      "id": "weekend",
+      "label": "GAMER10",
+      "description": "Promo pilihan pada item tertentu",
+      "type": "percent",
+      "value": 10,
+      "active": true
+    }
+  ],
+  "games": [
+    {
+      "id": "mlbb",
+      "name": "Mobile Legends: Bang Bang",
+      "shortName": "Mobile Legends",
+      "category": "moba",
+      "type": "game",
+      "badge": "HOT",
+      "badgeType": "hot",
+      "publisher": "Moonton",
+      "currencyName": "Diamond",
+      "description": "Diamond untuk skin dan event favorit.",
+      "color": "#6b5cff",
+      "emoji": "⚔️",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "ml86",
+          "label": "86 Diamonds",
+          "amount": 86,
+          "price": 20000
+        },
+        {
+          "id": "ml172",
+          "label": "172 Diamonds",
+          "amount": 172,
+          "price": 39000,
+          "tag": "Hemat"
+        },
+        {
+          "id": "ml257",
+          "label": "257 Diamonds",
+          "amount": 257,
+          "price": 58000
+        },
+        {
+          "id": "ml706",
+          "label": "706 Diamonds",
+          "amount": 706,
+          "price": 155000,
+          "tag": "Bonus"
+        },
+        {
+          "id": "ml1412",
+          "label": "1.412 Diamonds",
+          "amount": 1412,
+          "price": 305000
+        }
+      ]
+    },
+    {
+      "id": "free-fire",
+      "name": "Free Fire MAX",
+      "shortName": "Free Fire MAX",
+      "category": "battle-royale",
+      "type": "game",
+      "badge": "HOT",
+      "badgeType": "hot",
+      "publisher": "Garena",
+      "currencyName": "Diamond",
+      "description": "Diamond untuk bundle dan item eksklusif.",
+      "color": "#ff6b35",
+      "emoji": "🔥",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "ff70",
+          "label": "70 Diamonds",
+          "amount": 70,
+          "price": 10000
+        },
+        {
+          "id": "ff140",
+          "label": "140 Diamonds",
+          "amount": 140,
+          "price": 20000
+        },
+        {
+          "id": "ff355",
+          "label": "355 Diamonds",
+          "amount": 355,
+          "price": 50000,
+          "tag": "Hemat"
+        },
+        {
+          "id": "ff720",
+          "label": "720 Diamonds",
+          "amount": 720,
+          "price": 99000,
+          "tag": "Bonus"
+        }
+      ]
+    },
+    {
+      "id": "pubgm",
+      "name": "PUBG Mobile",
+      "shortName": "PUBG Mobile",
+      "category": "battle-royale",
+      "type": "game",
+      "badge": "PROMO",
+      "badgeType": "promo",
+      "publisher": "Level Infinite",
+      "currencyName": "UC",
+      "description": "UC untuk Royale Pass dan item kosmetik.",
+      "color": "#d6a342",
+      "emoji": "🎯",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "pub60",
+          "label": "60 UC",
+          "amount": 60,
+          "price": 16000
+        },
+        {
+          "id": "pub325",
+          "label": "325 UC",
+          "amount": 325,
+          "price": 79000
+        },
+        {
+          "id": "pub660",
+          "label": "660 UC",
+          "amount": 660,
+          "price": 159000,
+          "tag": "Hemat"
+        },
+        {
+          "id": "pub1800",
+          "label": "1.800 UC",
+          "amount": 1800,
+          "price": 399000
+        }
+      ]
+    },
+    {
+      "id": "genshin",
+      "name": "Genshin Impact",
+      "shortName": "Genshin Impact",
+      "category": "rpg",
+      "type": "game",
+      "badge": "HOT",
+      "badgeType": "hot",
+      "publisher": "HoYoverse",
+      "currencyName": "Genesis Crystals",
+      "description": "Genesis Crystals untuk petualangan Teyvat.",
+      "color": "#5c9ee8",
+      "emoji": "✨",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "gi60",
+          "label": "60 Crystals",
+          "amount": 60,
+          "price": 16000
+        },
+        {
+          "id": "gi300",
+          "label": "300 + 30 Crystals",
+          "amount": 330,
+          "price": 79000,
+          "tag": "Bonus"
+        },
+        {
+          "id": "gi980",
+          "label": "980 + 110 Crystals",
+          "amount": 1090,
+          "price": 249000
+        },
+        {
+          "id": "gi1980",
+          "label": "1.980 + 260 Crystals",
+          "amount": 2240,
+          "price": 479000
+        }
+      ]
+    },
+    {
+      "id": "hsr",
+      "name": "Honkai: Star Rail",
+      "shortName": "Honkai: Star Rail",
+      "category": "rpg",
+      "type": "game",
+      "badge": "HOT",
+      "badgeType": "hot",
+      "publisher": "HoYoverse",
+      "currencyName": "Oneiric Shard",
+      "description": "Oneiric Shard untuk perjalanan antarbintang.",
+      "color": "#9a70ed",
+      "emoji": "🌌",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "hs60",
+          "label": "60 Shards",
+          "amount": 60,
+          "price": 16000
+        },
+        {
+          "id": "hs300",
+          "label": "300 + 30 Shards",
+          "amount": 330,
+          "price": 79000,
+          "tag": "Bonus"
+        },
+        {
+          "id": "hs980",
+          "label": "980 + 110 Shards",
+          "amount": 1090,
+          "price": 249000
+        }
+      ]
+    },
+    {
+      "id": "hok",
+      "name": "Honor of Kings",
+      "shortName": "Honor of Kings",
+      "category": "moba",
+      "type": "game",
+      "badge": "NEW 2026",
+      "badgeType": "new",
+      "publisher": "Level Infinite",
+      "currencyName": "Tokens",
+      "description": "Tokens untuk hero dan kosmetik.",
+      "color": "#d3a75d",
+      "emoji": "👑",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "hok80",
+          "label": "80 Tokens",
+          "amount": 80,
+          "price": 15000
+        },
+        {
+          "id": "hok240",
+          "label": "240 Tokens",
+          "amount": 240,
+          "price": 45000
+        },
+        {
+          "id": "hok400",
+          "label": "400 Tokens",
+          "amount": 400,
+          "price": 75000,
+          "tag": "Hemat"
+        }
+      ]
+    },
+    {
+      "id": "codm",
+      "name": "Call of Duty Mobile",
+      "shortName": "Call of Duty Mobile",
+      "category": "shooter",
+      "type": "game",
+      "badge": "",
+      "badgeType": "",
+      "publisher": "Activision",
+      "currencyName": "CP",
+      "description": "CP untuk battle pass dan loadout.",
+      "color": "#6c8b7a",
+      "emoji": "🪖",
+      "image": "",
+      "popular": false,
+      "denominations": [
+        {
+          "id": "cod80",
+          "label": "80 CP",
+          "amount": 80,
+          "price": 15000
+        },
+        {
+          "id": "cod420",
+          "label": "420 CP",
+          "amount": 420,
+          "price": 75000
+        },
+        {
+          "id": "cod880",
+          "label": "880 CP",
+          "amount": 880,
+          "price": 149000
+        }
+      ]
+    },
+    {
+      "id": "roblox",
+      "name": "Roblox",
+      "shortName": "Roblox",
+      "category": "voucher",
+      "type": "voucher",
+      "badge": "HOT",
+      "badgeType": "hot",
+      "publisher": "Roblox",
+      "currencyName": "Robux",
+      "description": "Kredit digital untuk pengalaman Roblox.",
+      "color": "#667085",
+      "emoji": "⬛",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "rb400",
+          "label": "400 Robux",
+          "amount": 400,
+          "price": 75000
+        },
+        {
+          "id": "rb800",
+          "label": "800 Robux",
+          "amount": 800,
+          "price": 149000
+        },
+        {
+          "id": "rb1700",
+          "label": "1.700 Robux",
+          "amount": 1700,
+          "price": 299000
+        }
+      ]
+    },
+    {
+      "id": "wuwa",
+      "name": "Wuthering Waves",
+      "shortName": "Wuthering Waves",
+      "category": "rpg",
+      "type": "game",
+      "badge": "NEW 2026",
+      "badgeType": "new",
+      "publisher": "Kuro Games",
+      "currencyName": "Lunite",
+      "description": "Lunite untuk petualangan Solaris-3.",
+      "color": "#4daaa5",
+      "emoji": "🌊",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "ww60",
+          "label": "60 Lunite",
+          "amount": 60,
+          "price": 16000
+        },
+        {
+          "id": "ww300",
+          "label": "300 + 30 Lunite",
+          "amount": 330,
+          "price": 79000
+        },
+        {
+          "id": "ww980",
+          "label": "980 + 110 Lunite",
+          "amount": 1090,
+          "price": 249000
+        }
+      ]
+    },
+    {
+      "id": "zzz",
+      "name": "Zenless Zone Zero",
+      "shortName": "Zenless Zone Zero",
+      "category": "rpg",
+      "type": "game",
+      "badge": "NEW 2026",
+      "badgeType": "new",
+      "publisher": "HoYoverse",
+      "currencyName": "Monochrome",
+      "description": "Monochrome untuk kebutuhan Proxy.",
+      "color": "#d88d45",
+      "emoji": "🌀",
+      "image": "",
+      "popular": false,
+      "denominations": [
+        {
+          "id": "zzz60",
+          "label": "60 Monochrome",
+          "amount": 60,
+          "price": 16000
+        },
+        {
+          "id": "zzz300",
+          "label": "300 + 30 Monochrome",
+          "amount": 330,
+          "price": 79000
+        },
+        {
+          "id": "zzz980",
+          "label": "980 + 110 Monochrome",
+          "amount": 1090,
+          "price": 249000
+        }
+      ]
+    },
+    {
+      "id": "marvel-rivals",
+      "name": "Marvel Rivals",
+      "shortName": "Marvel Rivals",
+      "category": "shooter",
+      "type": "game",
+      "badge": "NEW 2026",
+      "badgeType": "new",
+      "publisher": "NetEase Games",
+      "currencyName": "Lattice",
+      "description": "Paket mata uang dalam game (demo katalog).",
+      "color": "#c94e5a",
+      "emoji": "🦸",
+      "image": "",
+      "popular": false,
+      "denominations": [
+        {
+          "id": "mr100",
+          "label": "100 Units",
+          "amount": 100,
+          "price": 19000
+        },
+        {
+          "id": "mr500",
+          "label": "500 Units",
+          "amount": 500,
+          "price": 89000
+        },
+        {
+          "id": "mr1000",
+          "label": "1.000 Units",
+          "amount": 1000,
+          "price": 169000
+        }
+      ]
+    },
+    {
+      "id": "delta-force",
+      "name": "Delta Force Mobile",
+      "shortName": "Delta Force Mobile",
+      "category": "shooter",
+      "type": "game",
+      "badge": "NEW 2026",
+      "badgeType": "new",
+      "publisher": "Team Jade",
+      "currencyName": "Coins",
+      "description": "Paket item digital (data demo).",
+      "color": "#5c7b62",
+      "emoji": "🛡️",
+      "image": "",
+      "popular": false,
+      "denominations": [
+        {
+          "id": "df100",
+          "label": "100 Coins",
+          "amount": 100,
+          "price": 19000
+        },
+        {
+          "id": "df500",
+          "label": "500 Coins",
+          "amount": 500,
+          "price": 89000
+        },
+        {
+          "id": "df1000",
+          "label": "1.000 Coins",
+          "amount": 1000,
+          "price": 169000
+        }
+      ]
+    },
+    {
+      "id": "steam",
+      "name": "Steam Wallet Code",
+      "shortName": "Steam Wallet",
+      "category": "voucher",
+      "type": "voucher",
+      "badge": "PROMO",
+      "badgeType": "promo",
+      "publisher": "Steam",
+      "currencyName": "Wallet Code",
+      "description": "Voucher saldo untuk akun Steam.",
+      "color": "#283b53",
+      "emoji": "🎮",
+      "image": "",
+      "popular": true,
+      "denominations": [
+        {
+          "id": "st12",
+          "label": "Rp 12.000",
+          "amount": 12000,
+          "price": 14000
+        },
+        {
+          "id": "st45",
+          "label": "Rp 45.000",
+          "amount": 45000,
+          "price": 49000
+        },
+        {
+          "id": "st60",
+          "label": "Rp 60.000",
+          "amount": 60000,
+          "price": 65000
+        },
+        {
+          "id": "st120",
+          "label": "Rp 120.000",
+          "amount": 120000,
+          "price": 129000
+        }
+      ]
+    },
+    {
+      "id": "google-play",
+      "name": "Google Play Card",
+      "shortName": "Google Play",
+      "category": "voucher",
+      "type": "voucher",
+      "badge": "",
+      "badgeType": "",
+      "publisher": "Google Play",
+      "currencyName": "Gift Card",
+      "description": "Voucher Google Play (cek wilayah akun sebelum redeem).",
+      "color": "#4e9b75",
+      "emoji": "▶",
+      "image": "",
+      "popular": false,
+      "denominations": [
+        {
+          "id": "gp20",
+          "label": "Rp 20.000",
+          "amount": 20000,
+          "price": 23000
+        },
+        {
+          "id": "gp50",
+          "label": "Rp 50.000",
+          "amount": 50000,
+          "price": 54000
+        },
+        {
+          "id": "gp100",
+          "label": "Rp 100.000",
+          "amount": 100000,
+          "price": 107000
+        }
+      ]
+    },
+    {
+      "id": "psn",
+      "name": "PlayStation Network (PSN) Gift Card",
+      "shortName": "PSN Gift Card",
+      "category": "voucher",
+      "type": "voucher",
+      "badge": "",
+      "badgeType": "",
+      "publisher": "PlayStation",
+      "currencyName": "Wallet Code",
+      "description": "Kode wallet PlayStation; wilayah akun harus cocok.",
+      "color": "#3466b3",
+      "emoji": "△",
+      "image": "",
+      "popular": false,
+      "denominations": [
+        {
+          "id": "psn100",
+          "label": "Rp 100.000",
+          "amount": 100000,
+          "price": 109000
+        },
+        {
+          "id": "psn200",
+          "label": "Rp 200.000",
+          "amount": 200000,
+          "price": 215000
+        },
+        {
+          "id": "psn500",
+          "label": "Rp 500.000",
+          "amount": 500000,
+          "price": 529000
+        }
+      ]
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify Premium",
+      "shortName": "Spotify Premium",
+      "category": "voucher",
+      "type": "voucher",
+      "badge": "",
+      "badgeType": "",
+      "publisher": "Spotify",
+      "currencyName": "Premium Plan",
+      "description": "Paket digital Spotify Premium (demo).",
+      "color": "#1caa69",
+      "emoji": "♫",
+      "image": "",
+      "popular": false,
+      "denominations": [
+        {
+          "id": "sp1",
+          "label": "1 Bulan",
+          "amount": 1,
+          "price": 59000
+        },
+        {
+          "id": "sp3",
+          "label": "3 Bulan",
+          "amount": 3,
+          "price": 169000
+        },
+        {
+          "id": "sp6",
+          "label": "6 Bulan",
+          "amount": 6,
+          "price": 329000
+        }
+      ]
+    }
+  ]
+}
