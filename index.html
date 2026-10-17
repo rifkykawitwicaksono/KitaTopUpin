@@ -201,30 +201,153 @@ footer { border-top:1px solid #ffffff15; padding:25px 0; color:var(--muted); fon
     </div>
 
     <div class="grid" id="grid">
-      <article class="game" data-name="Mobile Legends" data-category="MOBA">
-        <div class="art"><small>MOBA</small>⚔️</div>
-        <div class="game-info"><h3>Mobile Legends</h3><p>Informasi diamond dan opsi pembelian.</p><button data-game="Mobile Legends">Lihat Opsi ↗</button></div>
-      </article>
-      <article class="game" data-name="Free Fire" data-category="Battle Royale">
-        <div class="art orange"><small>BATTLE ROYALE</small>🔥</div>
-        <div class="game-info"><h3>Free Fire</h3><p>Informasi diamond dan layanan top up.</p><button data-game="Free Fire">Lihat Opsi ↗</button></div>
-      </article>
-      <article class="game" data-name="PUBG Mobile" data-category="Battle Royale">
-        <div class="art blue"><small>BATTLE ROYALE</small>🎯</div>
-        <div class="game-info"><h3>PUBG Mobile</h3><p>Informasi UC dan opsi pembelian.</p><button data-game="PUBG Mobile">Lihat Opsi ↗</button></div>
-      </article>
-      <article class="game" data-name="Roblox" data-category="Sandbox">
-        <div class="art red"><small>SANDBOX</small>◇</div>
-        <div class="game-info"><h3>Roblox</h3><p>Informasi opsi Robux dari penyedia.</p><button data-game="Roblox">Lihat Opsi ↗</button></div>
-      </article>
-      <article class="game" data-name="Genshin Impact" data-category="RPG">
-        <div class="art green"><small>RPG</small>✦</div>
-        <div class="game-info"><h3>Genshin Impact</h3><p>Informasi Genesis Crystal dan layanan.</p><button data-game="Genshin Impact">Lihat Opsi ↗</button></div>
-      </article>
-      <article class="game" data-name="Valorant" data-category="FPS">
-        <div class="art gold"><small>FPS</small>✹</div>
-        <div class="game-info"><h3>Valorant</h3><p>Informasi Valorant Points dan pembelian.</p><button data-game="Valorant">Lihat Opsi ↗</button></div>
-      </article>
+      
+<script>
+const products = [
+  // GAME MOBILE & STRATEGI
+  ["Mobile Legends: Bang Bang","Mobile & Strategi","Diamond, Twilight Pass, WDP","⚔️",""],
+  ["Free Fire","Mobile & Strategi","Diamond dan Booyah Pass","🔥","orange"],
+  ["Free Fire MAX","Mobile & Strategi","Diamond dan Booyah Pass","🔥","orange"],
+  ["PUBG Mobile","Mobile & Strategi","Unknown Cash (UC)","🎯","blue"],
+  ["Magic Chess: Go Go","Mobile & Strategi","Diamonds dan Pass","♟️",""],
+  ["Call of Duty: Mobile","Mobile & Strategi","COD Points (CP)","🎯","blue"],
+  ["EA SPORTS FC Mobile","Mobile & Strategi","FC Points dan Silver","⚽","green"],
+  ["eFootball","Mobile & Strategi","eFootball Coins","⚽","blue"],
+  ["League of Legends: Wild Rift","Mobile & Strategi","Wild Cores","🛡️",""],
+  ["Arena of Valor (AOV)","Mobile & Strategi","Informasi produk sedang disiapkan","🛡️",""],
+  ["Stumble Guys","Mobile & Strategi","Gems dan Tokens","🏃","orange"],
+  ["Clash of Clans","Mobile & Strategi","Informasi produk sedang disiapkan","🏰","green"],
+  ["Clash Royale","Mobile & Strategi","Informasi produk sedang disiapkan","👑","gold"],
+  ["Top Eleven","Mobile & Strategi","Tokens","⚽","green"],
+  ["Growtopia","Mobile & Strategi","Gems dan Items","🌳","green"],
+  ["Azur Lane","Mobile & Strategi","Gems","🚢","blue"],
+  ["Speed Drifters","Mobile & Strategi","Informasi produk sedang disiapkan","🏎️","red"],
+
+  // GAME RPG & ANIME
+  ["Genshin Impact","RPG & Anime","Genesis Crystals dan Welkin Moon","✨","green"],
+  ["Honkai: Star Rail","RPG & Anime","Oneiric Shards dan Express Supply Pass","🚄","blue"],
+  ["Zenless Zone Zero","RPG & Anime","Monochromes","🌌","red"],
+  ["Undawn","RPG & Anime","Raven Cards (RC)","🧟","green"],
+  ["Black Clover M","RPG & Anime","Informasi produk sedang disiapkan","🍀","green"],
+  ["AFK Journey","RPG & Anime","Informasi produk sedang disiapkan","🧙","gold"],
+  ["Yong Heroes","RPG & Anime","Informasi produk sedang disiapkan","🐉","red"],
+
+  // GAME PC & SANDBOX
+  ["VALORANT","PC & Sandbox","VALORANT Points dan Battle Pass","🎯","red"],
+  ["Roblox","PC & Sandbox","Robux dan Gift Cards","◇","red"],
+  ["Minecraft","PC & Sandbox","Minecoins dan Game Code","⛏️","green"],
+
+  // VOUCHER PLATFORM
+  ["Steam Wallet Code Indonesia","Voucher Platform","Saldo untuk pembelian di Steam","🎮","blue"],
+  ["Garena Shells","Voucher Platform","Kredit untuk game ekosistem Garena","🐉","red"],
+  ["Megaxus Mi-Cash","Voucher Platform","Kredit untuk game Megaxus","🪙","gold"],
+  ["Google Play Gift Card","Voucher Platform","Saldo Google Play untuk Android","▶️","green"],
+  ["Apple Gift Card","Voucher Platform","Saldo layanan Apple dan App Store","",""],
+  ["Nintendo eShop Card","Voucher Platform","Saldo Nintendo eShop","🎮","red"],
+  ["PlayStation Network Card","Voucher Platform","Saldo PlayStation PS4 dan PS5","🎮","blue"],
+
+  // APLIKASI HIBURAN
+  ["Hago","Aplikasi Hiburan","Diamond","💎","green"],
+  ["ZEPETO","Aplikasi Hiburan","ZEM dan Koin","👗","red"],
+  ["Tinder","Aplikasi Hiburan","Informasi paket berbayar sedang disiapkan","♥️","red"],
+  ["Bigo Live","Aplikasi Hiburan","Diamond","💎","blue"],
+  ["Poppo Live","Aplikasi Hiburan","Informasi produk sedang disiapkan","💎","red"],
+  ["StarMaker","Aplikasi Hiburan","Informasi produk sedang disiapkan","🎤","gold"],
+  ["SUGO","Aplikasi Hiburan","Informasi produk sedang disiapkan","💬","blue"],
+  ["TeraBox","Aplikasi Hiburan","Voucher premium berlangganan","☁️","blue"]
+];
+
+const grid = document.getElementById("grid");
+const search = document.getElementById("search");
+const filters = [...document.querySelectorAll(".filter")];
+const modal = document.getElementById("modal");
+let category = "Semua";
+
+function createCards() {
+  grid.innerHTML = products.map((p, i) => `
+    <article class="game"
+      data-name="${p[0].toLowerCase()}"
+      data-category="${p[1]}">
+      <div class="art ${p[4]}">
+        <small>${p[1]}</small>${p[3]}
+      </div>
+      <div class="game-info">
+        <h3>${p[0]}</h3>
+        <p>${p[2]}</p>
+        <button type="button" data-index="${i}">
+          Lihat Informasi ↗
+        </button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function render() {
+  const query = search.value.trim().toLowerCase();
+  const cards = [...grid.querySelectorAll(".game")];
+  let shown = 0;
+
+  cards.forEach(card => {
+    const matchName = card.dataset.name.includes(query);
+    const matchCategory =
+      category === "Semua" ||
+      card.dataset.category === category;
+    const visible = matchName && matchCategory;
+
+    card.style.display = visible ? "" : "none";
+    if (visible) shown++;
+  });
+
+  document.getElementById("count").textContent =
+    shown + " produk";
+  document.getElementById("empty").style.display =
+    shown ? "none" : "block";
+}
+
+createCards();
+render();
+
+search.addEventListener("input", render);
+
+filters.forEach(button => {
+  button.addEventListener("click", () => {
+    category = button.dataset.category;
+    filters.forEach(item =>
+      item.classList.toggle("active", item === button)
+    );
+    render();
+  });
+});
+
+grid.addEventListener("click", event => {
+  const button = event.target.closest("[data-index]");
+  if (!button) return;
+
+  const product = products[Number(button.dataset.index)];
+  document.getElementById("modalTitle").textContent = product[0];
+  document.getElementById("modalText").textContent =
+    "Informasi " + product[0] + ": " + product[2] +
+    ". Ketersediaan dan tautan afiliasi sedang disiapkan. " +
+    "Periksa mitra resmi sebelum melakukan pembelian.";
+
+  modal.classList.add("open");
+});
+
+document.getElementById("close").addEventListener("click", () => {
+  modal.classList.remove("open");
+});
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) modal.classList.remove("open");
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") modal.classList.remove("open");
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
     </div>
     <div class="empty" id="empty">Game tidak ditemukan. Coba kata kunci lain.</div>
   </section>
