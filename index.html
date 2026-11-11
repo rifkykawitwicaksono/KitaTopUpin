@@ -21,11 +21,14 @@ for(const c of categories){const o=document.createElement('option');o.value=c;o.
 function button(label,value){const b=document.createElement('button');b.className='filter'+(active===value?' active':'');b.textContent=label;b.type='button';b.onclick=()=>{active=value;select.value=value;sync();render()};filters.appendChild(b)}button('Semua','all');for(const c of categories)button(c,c);
 
 const uniPinPackageCatalog = {
- "Free Fire": {baseAmount:5,basePrice:1000,items:[5,12,50,70,140,355,720,1450,2180,3640,7290,36500,73100].map(n=>({name:n.toLocaleString("id-ID")+" Free Fire Diamonds",amount:n}))},
+ "Free Fire": {baseAmount:5,basePrice:1000,items:[5,12,50,70,140,355,720,1450,2180,3640,7290,36500,73100].map(n=>({name:n.toLocaleString("en-US")+" Free Fire Diamonds",amount:n}))},
  "Mobile Legends": {baseAmount:5,basePrice:1810,items:[["5 Diamonds",5],["11 + 1 Diamonds",12],["17 + 2 Diamonds",19],["25 + 3 Diamonds",28],["40 + 4 Diamonds",44],["53 + 6 Diamonds",59],["77 + 8 Diamonds",85],["154 + 16 Diamonds",170],["217 + 23 Diamonds",240],["256 + 40 Diamonds",296],["367 + 41 Diamonds",408],["503 + 65 Diamonds",568],["774 + 101 Diamonds",875],["1708 + 302 Diamonds",2010],["4003 + 827 Diamonds",4830]].map(([name,amount])=>({name,amount}))},
  "PUBG Mobile": {baseAmount:60,basePrice:17893,items:[60,325,660,1800,3850,8100,16200,24300,32400,40500].map(n=>({name:n.toLocaleString("id-ID")+" UC",amount:n}))},
  "Point Blank": {baseAmount:1200,basePrice:10000,items:[1200,2400,6000,12000,24000,36000,60000].map(n=>({name:n.toLocaleString("id-ID")+" PB Cash",amount:n}))},
  "EA SPORTS FC Mobile": {baseAmount:40,basePrice:6415,items:[["40 FC Points",40],["100 FC Points",100],["520 FC Points (500 + 20 Bonus)",520],["1070 FC Points (1000 + 70 Bonus)",1070],["2200 FC Points (2000 + 200 Bonus)",2200],["5750 FC Points (5000 + 750 Bonus)",5750],["12000 FC Points (10000 + 2000 Bonus)",12000]].map(([name,amount])=>({name,amount}))},
+ "TikTok Coins": {baseAmount:70,basePrice:22895,items:[70,350,700,1400,3500,7000,17500].map(n=>({name:n.toLocaleString("id-ID")+" Coins",amount:n}))},
+ "Roblox": {fixed:true,items:[["Rp50.000,- Roblox Gift Card",48440],["Rp65.000,- Roblox Gift Card",62970],["Rp100.000,- Roblox Gift Card",96500],["Rp200.000,- Roblox Gift Card",193000],["Rp500.000,- Roblox Gift Card",479000]].map(([name,price])=>({name,price}))},
+ "Google Play Gift Card": {fixed:true,items:[5000,10000,20000,50000,100000,150000,250000,300000,500000].map(n=>({name:"Kode Voucher Google Play Rp "+n.toLocaleString("id-ID"),price:Math.round(n*6070/5000)}))},
  "UniPin Voucher": {fixed:true,items:[["UniPin Voucher IDR 5.000",5000],["UniPin Voucher IDR 10.000",10000],["UniPin Voucher IDR 20.000",20000],["UniPin Voucher IDR 50.000",51000],["UniPin Voucher IDR 100.000",100000],["UniPin Voucher IDR 300.000",300000],["UniPin Voucher IDR 500.000",500000]].map(([name,price])=>({name,price}))}
 };
 const makePricePackages = p => {
